@@ -1,0 +1,20 @@
+--- Database connection pool created successfully. ---
+[Sun Jul  5 13:00:24 2026] Target watch directory found and validated: C:\machine-data-parser\abc
+[Sun Jul  5 13:00:24 2026] Executing initial startup directory sweep inside: C:\machine-data-parser\abc
+
+[Sun Jul  5 13:00:24 2026] Safely processing file: C:\machine-data-parser\abc\pta2620068-202606271719189-Report.csv
+[Sun Jul  5 13:00:24 2026] Saved Bobbin FID 'ptb2619139' [TOP] successfully.
+[Sun Jul  5 13:00:24 2026] File cleanly archived to: C:\machine-data-parser\abc\convert\pta2620068-202606271719189-Report_20260705130024.csv
+
+[Sun Jul  5 13:00:24 2026] Safely processing file: C:\machine-data-parser\abc\ptb2619139-202606291416279-Report 1.csv
+[Sun Jul  5 13:00:24 2026] Saved Bobbin FID 'ptb2619139' [TOP] successfully.
+[Sun Jul  5 13:00:24 2026] File cleanly archived to: C:\machine-data-parser\abc\convert\ptb2619139-202606291416279-Report 1_20260705130024.csv
+
+[Sun Jul  5 13:00:24 2026] Safely processing file: C:\machine-data-parser\abc\ptb2619139-202606291507232-Report.csv
+[Sun Jul  5 13:00:24 2026] Saved Spectral File for Bobbin FID 'ptb2619139' cleanly.
+[Sun Jul  5 13:00:24 2026] File cleanly archived to: C:\machine-data-parser\abc\convert\ptb2619139-202606291507232-Report_20260705130024.csv
+
+[Sun Jul  5 13:00:24 2026] Safely processing file: C:\machine-data-parser\abc\ptd2620053-202606271710149-Report.csv
+[Sun Jul  5 13:00:24 2026] Saved Bobbin FID 'ptd2620053' [TOP] successfully.
+[Sun Jul  5 13:00:24 2026] File cleanly archived to: C:\machine-data-parser\abc\convert\ptd2620053-202606271710149-Report_20260705130024.csv
+[Sun Jul  5 13:00:24 2026] Headless Monitor Service Live & Online.

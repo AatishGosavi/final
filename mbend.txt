@@ -1,0 +1,40 @@
+CREATE TABLE IF NOT EXISTS f_cable_cable_cutoff (
+    id                  SERIAL PRIMARY KEY,
+    fiber_id            VARCHAR(50)     NOT NULL,
+    length              NUMERIC(10,2),
+    measurement_date    DATE,
+    measurement_time    VARCHAR(20),
+    Operator            VARCHAR(50),
+    cable_cutoff_flag   VARCHAR(5),      -- 'YES' or 'NO' as read from the file
+    cutoff_wavelength   NUMERIC(10,2),   -- the Cut-off Wavelength (nm) value from the file
+    target_column       VARCHAR(30),     -- 'cable_cut_off' or 'fiber_cut_off_top'
+    created_at          TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_f_cable_cable_cutoff_fiber_id ON f_cable_cable_cutoff (fiber_id);
+
+
+-- ----------------------------------------------------------------------------
+-- 4) New log table: f_mbend_history
+-- ----------------------------------------------------------------------------
+-- Full-granularity history of every MBend measurement: one row per
+-- (test row x wavelength) combination, so all Turn/Mandrel/Sample-length
+-- test conditions are preserved even though qc_entry_temp only keeps a
+-- worst-case summary per wavelength.
+
+CREATE TABLE IF NOT EXISTS f_mbend_history (
+    id                  SERIAL PRIMARY KEY,
+    fiber_id            VARCHAR(50)     NOT NULL,
+    measurement_date    DATE,
+    measurement_time    VARCHAR(20),
+    Operator            VARCHAR(50),
+    sample_type         VARCHAR(20),     -- e.g. 'P1'
+    turn                NUMERIC,         -- Turn (N)
+    mandrel_diameter    NUMERIC,         -- Mandrel Diameter (mm)
+    sample_length       NUMERIC,         -- Sample length (m)
+    wavelength          NUMERIC,         -- e.g. 1310, 1550, 1625
+    attenuation         NUMERIC(10,4),
+    created_at          TIMESTAMP DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_f_mbend_history_fiber_id ON f_mbend_history (fiber_id);

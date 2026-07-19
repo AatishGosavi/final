@@ -1,0 +1,21 @@
+CREATE TABLE pt_machine_logs (
+    spool_code_tu VARCHAR(100) PRIMARY KEY,
+    spool_code_po VARCHAR(100),
+    start_time TIME,
+    end_time TIME,
+    operator VARCHAR(100),
+    set_length INT,
+    real_length INT,
+    machine_stop_reason_t TEXT,
+    start_date DATE,
+    end_date DATE,
+    run_speed INT,
+    machine_total_time INT,
+    machine_total_length INT,
+    idle_time INTERVAL,
+    runtime INTERVAL,
+    processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index for fast performance when filtering or sorting by date/operator
+CREATE INDEX idx_spool_logs_date ON pt_machine_logs (start_date);
