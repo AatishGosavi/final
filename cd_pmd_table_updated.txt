@@ -1,0 +1,38 @@
+-- 1. Chromatic Dispersion Raw Point History Table
+CREATE TABLE f_cd_history (
+    id SERIAL PRIMARY KEY,
+    bobbin_id VARCHAR(100) NOT NULL,
+    length DECIMAL(12,3),
+    measurement_date DATE,
+    measurement_time TIME,
+    wavelength DECIMAL(10,3),
+    delay DECIMAL(12,3),
+    dispersion DECIMAL(10,3),
+    slope DECIMAL(10,3)
+);
+
+-- 2. PMD Section Measurements History Table
+CREATE TABLE f_pmd_history (
+    id SERIAL PRIMARY KEY,
+    bobbin_id VARCHAR(100) NOT NULL,
+    length DECIMAL(12,3),
+    measurement_date DATE,
+    measurement_time TIME,
+    reported_wavelength INT, -- 1310 or 1550
+    pmd DECIMAL(10,4),
+    pmd_coefficient DECIMAL(10,4),
+    gaussian_compliance DECIMAL(10,4),
+    second_order_pmd DECIMAL(10,4),
+    second_order_pmd_coeff DECIMAL(10,4)
+);
+
+CREATE TABLE f_length_history (
+    id SERIAL PRIMARY KEY,
+    bobbin_id VARCHAR,
+    length NUMERIC,
+    measurement_date DATE,
+    measurement_time VARCHAR,
+    measured_length NUMERIC,
+    measured_time_us NUMERIC,
+    wavelength NUMERIC
+);
