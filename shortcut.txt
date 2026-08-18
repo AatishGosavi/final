@@ -1,0 +1,48 @@
+Step 1: Create a Task in Task Scheduler 
+Open Task Scheduler by typing "Task Scheduler" into the Start menu search bar or by pressing Windows + R and typing taskschd.msc.
+In the left pane, right-click on Task Scheduler Library and select New Folder... Name the folder something like "UAC Bypass" (optional, but helps keep things organized).
+Select the new folder, then in the right-hand Actions pane, click Create Task... (not "Create Basic Task").
+In the General tab:
+Give the task a descriptive Name (e.g., "MyAppStartup"). Remember this name.
+Under Security options, select Run with highest privileges.
+In the Configure for dropdown menu, select your operating system (e.g., Windows 10, Windows 11).
+In the Triggers tab:
+Click New...
+In the "Begin the task" dropdown, select At log on.
+Ensure the Enabled checkbox is checked and click OK.
+In the Actions tab:
+Click New...
+The "Action" should be set to Start a program.
+Click Browse... and locate your desired .exe file.
+(Optional) Add any arguments in the "Add arguments (optional)" field and set the "Start in (optional)" path if needed.
+Click OK to save the action.
+In the Conditions tab (especially for laptops):
+Under the "Power" section, uncheck Start the task only if the computer is on AC power and Stop if the computer switches to battery power to ensure it runs regardless of power source.
+In the Settings tab:
+Ensure Allow task to be run on demand is checked.
+Click OK to save and create the task. You might be prompted for an administrator password/username at this point to save the task with elevated privileges. 
+Step 2: Create a Shortcut in the Startup Folder 
+Open the Start menu and type shell:startup, then press Enter. This opens your user's startup folder.
+Right-click anywhere in the folder, select New, and then click Shortcut.
+In the "Type the location of the item" field, enter the following command, replacing "Your-Task-Name" and "Your-Task-Scheduler-Folder" with the actual names you used in Step 1:
+C:\Windows\System32\schtasks.exe /RUN /TN "UAC Bypass\MyAppStartup"
+(If you didn't create a folder, use C:\Windows\System32\schtasks.exe /RUN /TN "MyAppStartup")
+Click Next, give your shortcut a name, and click Finish.
+(Optional) You can right-click the new shortcut and change its icon in the Properties window. 
+Now, the next time you log in, the program will start automatically with administrator rights and no UAC prompt will appear. 
+Security Note: Running applications with elevated privileges bypasses important security measures (UAC). Only do this with applications from trusted sources. 
+A Comprehensive Guide to Running a Program on Startup for ...
+8 Jan 2022 — As an administrator. ... Unfortunately, using the method previously mentioned for running a program on startup as a norm...
+favicon
+Medium
+
+How to bypass UAC using Task Scheduler | by Žan Ožbot
+24 Dec 2021 — How to bypass UAC using Task Scheduler * Open Task Scheduler using the Run dialog. * General options for a task. * Crea...
+favicon
+Medium
+
+Disable UAC for a specific program (Windows 10) - Super User
+5 Dec 2020 — Use the Windows Task Scheduler to bypass the UAC prompt. Instructions: * Open the Start Menu (or press the Windows Start...
+favicon
+Super User
+Show all
